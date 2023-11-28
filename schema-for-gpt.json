@@ -1,0 +1,57 @@
+{
+  "paths": {
+    "/chocottomemo-public/chocottomemo-public": {
+      "get": {
+        "summary": "\u30c1\u30e7\u30b3\u30c3\u30c8\u30e9\u30f3\u30c9\u306e\u60c5\u5831\u3092\u30da\u30fc\u30b8\u3092\u6307\u5b9a\u3057\u3066\u53d6\u5f97\u3059\u308b",
+        "operationId": "chocoinfo-search",
+        "description": "Fetches details for a given 'pagename'.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "pagename",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "The name of the page to retrieve information about."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A successful response, containing details about the page.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "isNotFound": {
+                      "type": "boolean",
+                      "description": "True if information is not found or an error occurred."
+                    },
+                    "information": {
+                      "type": "string",
+                      "description": "Detailed information about the specified 'pagename'."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ChocottoMemo API",
+    "version": "1.0.0",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://un6jm0bi51.execute-api.ap-northeast-1.amazonaws.com"
+    }
+  ]
+}
